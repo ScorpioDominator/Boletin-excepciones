@@ -1,15 +1,43 @@
 package ejercicio;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class Ejercicio4 {
 
 	public static void main(String[] args) {
+		
+		Scanner keyboard= new Scanner(System.in);
 
-		int número = 8128, divisible = 2;
+		int divisible = 2, number=0;
+		
+		boolean correcto = false;
+		
+		String mensajeN="Introduce el número que deseas descomponer";
 
-		while (divisible <= número) {
+		do {
+			try {
+				System.out.println(mensajeN);
+				number = keyboard.nextInt();
+				correcto = true;
 
-			if (Calcprimo(divisible) == true && número % divisible == 0) {
-				número = número / divisible;
+			} catch (InputMismatchException e) {
+				System.out.println("Error en la introducción del número");
+				correcto = false;
+			}
+
+			finally {
+				keyboard.nextLine();
+			}
+		}
+
+		while (!correcto);
+
+
+		while (divisible <= number) {
+
+			if (Calcprimo(divisible) == true && number % divisible == 0) {
+				number = number / divisible;
 				System.out.print(divisible + " ");
 				divisible = 2;
 
@@ -18,6 +46,8 @@ public class Ejercicio4 {
 			}
 
 		}
+		
+		keyboard.close();
 
 	}
 	public static boolean Calcprimo(int número) {

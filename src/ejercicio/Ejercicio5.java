@@ -1,13 +1,42 @@
 package ejercicio;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class Ejercicio5 {
 
 	public static void main(String[] args) {
 		
-		int number=6;
+		Scanner keyboard= new Scanner(System.in);
 		
-//		if (perfecto(number)==true) {
-//			System.out.println("oh si");}
+		int number=0;
+		
+		boolean correcto = false;
+		
+		String mensajeN="Introduce el número que deseas saber si es perfecto";
+
+		do {
+			try {
+				System.out.println(mensajeN);
+				number = keyboard.nextInt();
+				correcto = true;
+
+			} catch (InputMismatchException e) {
+				System.out.println("Número fuera de rango");
+				correcto = false;
+			}
+
+			finally {
+				keyboard.nextLine();
+			}
+		}
+
+		while (!correcto);
+
+		
+		if (perfecto(number)==true) {
+			System.out.println("El número introducido es perfecto");
+			}
 		for(number=1; number<=10000-1; number++) {
 			
 		if (perfecto(number)==true) {

@@ -153,9 +153,6 @@ public class Ejercicio7 {
 										rondaJug2 = true;
 										repeat2 = true;
 									}
-//									else if (throw new DataFormatException("Error en la introdicción de datos"));
-									
-
 								}
 								while (repeat2 = false);
 
