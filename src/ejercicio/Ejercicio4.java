@@ -13,6 +13,8 @@ public class Ejercicio4 {
 		
 		boolean correcto = false;
 		
+		/*1-Le pedimos al usuario un número que quieras descomponer*/
+		
 		String mensajeN="Introduce el número que deseas descomponer";
 
 		do {
@@ -20,6 +22,14 @@ public class Ejercicio4 {
 				System.out.println(mensajeN);
 				number = keyboard.nextInt();
 				correcto = true;
+				
+		/*1.1-Controlamos que el usuario mete el dato correcto y si no lo hace volverselo a pedir hasta que lo haga*/
+				
+				if (number<=0) {
+					System.out.println("Los números como el 0 o negativos no están compuestos por números primos "
+							+ "vuelve a introducir un número esta vez superior a 0");
+					correcto=false;
+				}
 
 			} catch (InputMismatchException e) {
 				System.out.println("Error en la introducción del número");
@@ -38,7 +48,10 @@ public class Ejercicio4 {
 
 			if (Calcprimo(divisible) == true && number % divisible == 0) {
 				number = number / divisible;
-				System.out.print(divisible + " ");
+				
+				/*Pasamos por pantalla aquellos números por los que sean divisibles el número dado por el usuario*/
+				
+				System.out.print(divisible + " ");  /*el " " determina que divisible aparecerá las veces que sea necesaria*/
 				divisible = 2;
 
 			} else {
@@ -50,6 +63,7 @@ public class Ejercicio4 {
 		keyboard.close();
 
 	}
+	/*2- La función se encarga de determinar si el número introducido es primo o no*/
 	public static boolean Calcprimo(int número) {
 		int incremento=0;
 		boolean primo=false;
